@@ -1,32 +1,16 @@
 # nodejs-botservice
-A sample bot in Node.js using Azure Bot Service
 
+A sample bot in Node.js using Azure Bot Service.
+A full tutorial on how to deploy this bot on Azure can be found in this [blog post](https://clemenssiebler.com/blog/2018/02/building-an-intelligent-node.js-chatbot-with-azure-bot-service/).
 
-## Use Azure app service editor
-
-1. make code change in the online editor
-
-Your code changes go live as the code changes are saved.
-
-## Use Visual Studio Code
-
-### Build and debug
-1. download source code zip and extract source in local folder
-2. open the source folder in  Visual Studio Code
-3. make code changes
-4. download and run [botframework-emulator](https://emulator.botframework.com/)
-5. connect the emulator to http://localhost:3987
-
-### Publish back
+# Notes
 
 ```
-npm run azure-publish
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 ```
-
-## Use continuous integration
-
-If you have setup continuous integration, then your bot will automatically deployed when new changes are pushed to the source repository.
-
-
-
- 
