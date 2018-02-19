@@ -1,6 +1,5 @@
 var restify = require('restify');
 var builder = require('botbuilder');
-var botbuilder_azure = require("botbuilder-azure");
 
 // Setup Restify Server
 var server = restify.createServer();
@@ -9,7 +8,7 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 });
   
 var useEmulator = (process.env.NODE_ENV == 'development');
-var connector = useEmulator ? new builder.ChatConnector() : new botbuilder_azure.BotServiceConnector({
+var connector = useEmulator ? new builder.ChatConnector() : new builder.BotServiceConnector({
     appId: process.env['MicrosoftAppId'],
     appPassword: process.env['MicrosoftAppPassword'],
     openIdMetadata: process.env['BotOpenIdMetadata']
