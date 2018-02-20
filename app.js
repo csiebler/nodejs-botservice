@@ -1,17 +1,18 @@
 var restify = require('restify');
 var builder = require('botbuilder');
+var botbuilder_azure = require("botbuilder-azure");
 
 // Setup Restify Server
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
    console.log('%s listening to %s', server.name, server.url); 
 });
-  
+
 var useEmulator = (process.env.NODE_ENV == 'development');
-var connector = useEmulator ? new builder.ChatConnector() : new builder.BotServiceConnector({
-    appId: process.env['MicrosoftAppId'],
-    appPassword: process.env['MicrosoftAppPassword'],
-    openIdMetadata: process.env['BotOpenIdMetadata']
+var connector = useEmulator ? new builder.ChatConnector() : new builder.ChatConnector({
+    appId: process.env.MicrosoftAppId,
+    appPassword: process.env.MicrosoftAppPassword,
+    openIdMetadata: process.env.BotOpenIdMetadata
 });
 
 // Listen for messages from users
@@ -31,16 +32,16 @@ const LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v1/application?id=' +
 var recognizer = new builder.LuisRecognizer(LuisModelUrl);
 var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 .matches('Greeting', (session) => {
-    session.send('You reached Greeting intent, you said \'%s\'.', session.message.text);
+    session.send('Yay, you reached Greeting intent, you said \'%s\'.', session.message.text);
 })
 .matches('Help', (session) => {
-    session.send('You reached Help intent, you said \'%s\'.', session.message.text);
+    session.send('Yay, you reached Help intent, you said \'%s\'.', session.message.text);
 })
 .matches('Cancel', (session) => {
-    session.send('You reached Cancel intent, you said \'%s\'.', session.message.text);
+    session.send('Yay, you reached Cancel intent, you said \'%s\'.', session.message.text);
 })
 .onDefault((session) => {
-    session.send('Sorry, I did not understand \'%s\'.', session.message.text);
+    session.send('Ugh, I did not understand \'%s\'.', session.message.text);
 });
 
 bot.dialog('/', intents);
